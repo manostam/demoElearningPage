@@ -1,0 +1,448 @@
+
+body *{
+    /* helpful to see the borders of the various elements, comment/uncomment the following to use */    
+    /* 
+    border: 1pt dashed darkred;
+    */
+}    
+
+body {
+/* γενική διάταξη-βασικές περιοχές με CSS grid, 5 στήλες * 4 γραμμές (header, nav, main, footer) */
+    display: grid;
+    grid: "h h h h h"
+          "n n n n n"
+          "m m m m m"
+          "f f f f f";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px auto auto 100px;
+    
+}
+/* ορισμός μεγέθους γραμματοσειράς στις παραγράφους μας, θέτω default=large, το πειράζω όπου αλλού θέλω με κλάσεις κτλ. */
+body p {
+    font-size: large;
+}
+
+/* τοποθέτηση τίτλου σελίδας στο κέντρο, χρωματισμός και στυλιζάρισμα της */
+h1 {
+    font-size: xx-large;
+    text-align: center;
+    color: green;
+}
+/* χρωματισμός ενότητας σελίδας */
+h2 {
+    font-size: x-large;
+    color: rgb(1, 85, 1);
+}
+h3 {
+    font-size: larger;
+    color: blue;
+}
+h4 {
+    font-size: large;
+    text-decoration: underline;
+}
+h5 {
+    font-size: medium;
+    font-weight: bold;
+}
+h6 {
+    font-size: medium;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+
+/* μορφοποίηση περιεχομένου παραγράφων */
+.paragraphSection p{
+    font-size: medium;
+    font-weight:lighter;
+}
+.paragraphSection p ul{
+    font-size: medium;
+    font-weight:lighter;
+    background-color: bisque;
+}
+
+figure {
+
+    /* float:right; */
+    font-style: italic; 
+}
+
+
+/* ----------------------------------------- HEADER ----------------------------------------- */
+
+/* ορισμός μεγέθους header και χρωματισμός του */
+header {
+    background-color: rgba(231, 233, 235);
+    border: 1pt ridge blue;
+    /* γενική διάταξη-βασικές περιοχές με CSS grid, 5 στήλες * 4 γραμμές (header, nav, main, footer) */
+    grid-area: h;
+}
+
+#headerTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header>iframe {
+    grid-area: h;
+}
+
+/* τοποθέτηση εικόνας μαγικού καπέλου στο header */
+#headerImage1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 80vh;
+}
+/* τοποθέτηση εικόνας μαγικού καπέλου στο header */
+#headerImage2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* width: 10vw; */
+    grid-column: 5/6;
+    grid-row: 1/2;
+    height: 80vh;
+}
+
+
+/* specifying a web font that will be used to our title */
+@font-face {
+    font-family: "Bitstream Vera Serif Bold";
+    src: url("https://mdn.github.io/shared-assets/fonts/VeraSeBd.ttf");
+  }     
+
+#headerTitle {
+    grid-column: 2/5;
+    grid-row: 1/2;
+    /* @font-face web font */
+    font-family: "Bitstream Vera Serif Bold", serif;
+}
+
+/* ----------------------------------------- NAV ----------------------------------------- */
+
+/* ορισμός μπάρας πλοήγησης ως sticky για να ακολουθάει την κύλιση ποντικιού, 
+τοποθέτηση και χρωματισμός της μπάρας */
+nav {
+    font-size: small;
+    text-align: center;
+    /* sticky goes hand-to-hand with top, do NOT erase */
+    position: sticky; top: 0;
+
+    background-color:  rgba(70, 214, 125, 1);
+    border: 1pt ridge green;
+    
+    /* γενική διάταξη-βασικές περιοχές με CSS grid, 5 στήλες * 4 γραμμές (header, nav, main, footer) */
+    grid-area: n;
+    
+}
+/* τοποθέτηση της λίστας στα όρια του nav */
+nav>ul{
+    /* nav>ul ως flex container */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: space-evenly; align-items: center;
+    
+}
+
+nav>ul>li{
+    text-align: center;
+    font-size: x-large;
+    color: darkblue;
+    
+    
+}
+
+/* ----------------------------------------- MAIN ----------------------------------------- */
+
+main {
+    /* γενική διάταξη-βασικές περιοχές με CSS grid, 5 στήλες * 4 γραμμές (header, nav, main, footer) */
+    grid-area: m;
+}
+
+.main.A {
+    display: grid;
+    margin: 5px;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main.A>h1{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.main.A h2{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* παραγραφοποίηση, στοίχιση στις ιστοσελίδες γενικού περιεχομένου categories.html, database_safety.html, intro_to_probabilitis.html */
+
+.main.B h1, .main.B h2 {
+    border: 2pt ridge green;
+    margin: 0 auto;     /* Centers the h2 horizontally */
+    padding: 10px;      /* Optional, if you want some space around the text */
+    border-bottom: 2px solid black; /* Adds the bottom border */
+    margin-bottom: 20px;
+}
+.book-lecture-item {
+    border: 1pt ridge green;
+    
+}
+
+.main.B {
+    display: grid;
+    margin: 5px;
+    grid-template-rows: auto auto 1fr 1fr 1fr auto;
+    grid-template-columns: minmax(450px, 1fr) minmax(450px, 1fr)
+}
+
+.main.B h1{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    grid-area: 1 / 1 / 1 / 3;
+}
+
+.main.B h2:first-of-type{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    grid-area: 2 / 1 / 2 / 2;
+}
+
+.book-lecture-item:nth-of-type(1){
+    grid-area: 3 / 1 / 3 / 1;
+    background-color: linen;
+    overflow: hidden;
+}
+
+.book-lecture-item:nth-of-type(2){
+    grid-area: 4 / 1 / 4 / 1;
+    background-color: linen;
+    overflow: hidden;
+}
+
+.book-lecture-item:nth-of-type(3){
+    grid-area: 5 / 1 / 5 / 1;
+    background-color: linen;
+    overflow: hidden;
+}
+
+.main.B h2:nth-of-type(2){
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    grid-area: 2 / 2 / 2 / 2;
+}
+
+.book-lecture-item:nth-of-type(4){
+    grid-area: 3 / 2 / 3 / 2;
+    background-color: linen;
+    overflow: hidden;
+}
+
+.book-lecture-item:nth-of-type(5){
+    grid-area: 4 / 2 / 4 / 2;
+    background-color: linen;
+    overflow: hidden;
+}
+
+.book-lecture-item:nth-of-type(6){
+    grid-area: 5 / 2 / 5 / 2;
+    background-color: linen;
+    overflow: hidden;
+}
+
+
+
+
+/* ----------------------------------------- FOOTER ----------------------------------------- */
+
+/* τοποθέτηση και χρωματισμός υποσέλιδου, 
+clear! για να μείνει κάτω απ τα floating sections */
+footer {
+    padding: 0;
+    margin: 0;
+    background-color:rgba(231, 233, 235);
+    /* width: 97vw; */
+    /* height: 15vh; */
+    border: 1pt ridge blue;
+    clear: both;
+    
+    /* γενική διάταξη-βασικές περιοχές με CSS grid, 5 στήλες * 4 γραμμές (header, nav, main, footer) */
+    grid-area: f;
+}
+footer>iframe {
+    padding: 0;
+    margin: 0;
+}
+address {
+    padding: 0;
+    margin: 0;
+    grid-column: 2/5;
+    text-align: center;
+}
+
+
+/* ----------------------------------------- various stuff ----------------------------------------- */
+
+
+a:link {
+    color:blue;
+}
+a:visited {
+    color:darkblue;
+}
+a:hover {
+    color:red;
+}
+a:active {
+    color:red;
+    text-transform:uppercase;
+}
+
+
+/* fancy art, fixed για να είναι σταθερά στο παράθυρο -> παραπέμπει τον επισκέπτη να διαβάσει */
+#catReading {
+    position: fixed;
+    top: 85vh;
+    right: 5vw;
+    width: 5vw; 
+}
+
+#checkYoSelf {
+    top: 85vh;
+    left: 5vw;
+    width: 5vw;
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------------- classes handling ----------------------------------------- */
+
+
+.book-lecture-item {
+    display: flex;
+    align-items: flex-start;
+    /* margin-bottom: 2em; */
+}
+
+
+.book-lecture-item img {
+    /* margin-right: 1em; */
+    width: 250px;
+    height: auto;
+}
+
+.book-lecture-meta {
+    display: flex;
+    /* gap: 1em; */
+    font-size: 0.9em;
+    color: #555; /* Optional for lighter text */
+}
+
+.general_section img {
+    max-width: 500px;
+}
+.general_section li {
+    font-size: 20px;
+}
+.general_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* ----------------------------------------- unsorted ----------------------------------------- */
+
+
+img {
+    max-width: 100%;
+} 
+
+@media (max-width: 800px) {
+    .main.A {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .main.B {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+}
+
+#headerTitle {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 800px) {
+    #headerTitle {
+        margin: 0; 
+        font-size: 5vw;
+        text-wrap: wrap;
+        max-width: 90%;
+        white-space: normal;
+    }
+}
+
+#stam {
+    float: left;
+    margin-right: 1em;
+}
+#stam2 {
+    width: 70vw;
+}
+
+
+/* ----------------------------------------- form ----------------------------------------- */
+
+form legend {
+    font-size: large;
+    text-align: left;
+    color: green;
+}
+fieldset {
+    display: flex;
+    border: 1pt ridge green;
+    border-radius: 15px;
+}
+fieldset p {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 800px) {
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+    }
+}
+
+header>a {
+    position: absolute;
+    text-align: center;
+    left: 40vw;
+    right: 40vw;
+    font-size: medium;
+    font-style: italic;
+}
+
+

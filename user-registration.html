@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Registration </title>
+    <link rel="stylesheet" href="commonCSSRules.css">
+    <script src="commonJSscripts.js"> </script>
+</head>
+
+<body>
+    <header>
+        <h1> Εγγραφή νέου χρήστη </h1> 
+        <a href="index.html"> (Επιστροφή στην αρχική σελίδα) </a>
+    </header>
+     
+    <main>
+        <!-- The action attribute specifies where to send the form-data when a form is submitted. -->
+    <form name="registrationForm" method="post" action="/register-user">
+        <fieldset>
+            <legend> Προσωπικά στοιχεία </legend>
+            <p>
+                <!-- value attribute should be used to initialize the element's value. If left blank, the placeholder shall appear in its space. When the value attribute has been defined then you can easily get the corresponding value that the user will input with the DOM attribute value, the textContent might be returning whole lot more than the value  -->
+                <label for="onomatepwnumo"> Ονοματεπώνυμο </label>
+                <input type="text" id="onomatepwnumo" name="onomatepwnumo" value="" placeholder="Γεώργιος Παπαγεωργίου?" required>
+                <label for="hlektronikhDieu8unsh"> Διεύθυνση ηλεκτρονικού ταχυδρομείου </label>
+                <input type="email" id="hlektronikhDieu8unsh" name="hlektronikhDieu8unsh" placeholder="giwrgomanwlhs@xapl.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"  title="εισάγετε διεύθυνση ταχυδρομείου με χαρακτήρες a-z0-9._%+\- ακολουθούμενους από @ και την αντίστοιχη υπηρεσία ηλεκτρονικού ταχυδρομείου" required>
+                <label for="dieu8unshKatoikias"> Διεύθυνση κατοικίας </label>
+                <input type="text" id="dieu8unshKatoikias" name="dieu8unshKatoikias" placeholder="Ξαπλώπουλου 22, Νέος Πειραιάς">               
+                <label for="hmeromhniaGennhshs"> Ημερομηνία γέννησης </label>
+                <input type="date" id="hmeromhniaGennhshs" name="hmeromhniaGennhshs"  required>        
+                <label for="thlefwnoEpikoinwnias"> Τηλέφωνο επικοινωνίας </label>
+                <input type="text" id="thlefwnoEpikoinwnias" name="thlefwnoEpikoinwnias" value="" pattern="[0-9]{10,}$" title="Παρακαλώ εισάγετε αριθμό τηλεφώνου από 10 ψηφία και άνω" required>
+            </p>
+
+        </fieldset>
+        <fieldset>
+            <legend> Στοιχεία ταυτοποίησης </legend>
+            <p>
+                <label for="theUsername"> Όνομα χρήστη </label>
+                <input type="text" id="theUsername" name="theUsername" placeholder="Blue monkey" autocomplete="userFunnyName" list="userFunnyNameList" required>
+                <label for="thePassword"> Κωδικός χρήστη </label>
+                <input type="password" id="thePassword" name="thePassword" value="" required>
+                <label for="repeatPassword"> Επανάληψη κωδικού </label>
+                <input type="password" id="repeatPassword" name="repeatPassword" value="" required>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend> Επικοινωνία μέσω: </legend>
+            <p>
+                <span>
+                <input type="checkbox" id="theSMS" name="theSMS">
+                <label for="theSMS"> SMS </label> </span>
+                <span>
+                <input type="checkbox" id="theEmail" name="theEmail">
+                <label for="theEmail"> e-mail </label> </span>
+                <span>
+                <input type="checkbox" id="theViber" name="theViber">
+                <label for="theViber"> Viber </label> </span>
+                <span>
+                <input type="checkbox" id="theWhatsApp" name="theWhatsApp">
+                <label for="theWhatsApp"> WhatsApp </label> </span>
+                <span>
+                <input type="checkbox" id="ePigeon" name="ePigeon">     <!-- TODO να εμφανίσω σφάλμα "Out of pigeons right now, please try later"-->
+                <label for="ePigeon"> Ταχυδρομικού περιστεριού </label> </span>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            
+            <legend> Μορφωτικό-επαγγελματικό προφίλ </legend>
+            <p> 
+                <span> Απασχόληση αυτή τη περίοδο: </span>
+                <span>
+                <input type="radio" id="publicSector" name="aboutJob">
+                <label for="publicSector"> Απασχόληση στο Δημόσιο Τομέα </label> </span>
+                <span>
+                <input type="radio" id="privateSector" name="aboutJob">
+                <label for="privateSector"> Απασχόληση στον Ιδιωτικό Τομέα </label> </span>
+                <span>
+                <input type="radio" id="ownJob" name="aboutJob">
+                <label for="ownJob"> Αυτοαπασχολούμενος </label> </span>
+                <span>
+                <input type="radio" id="anergos" name="aboutJob">
+                <label for="anergos"> Άνεργος </label> </span>
+            </p>
+            <p>
+                <span> Εκπαιδευτικό επίπεδο: </span>
+                <span>
+                <input type="radio" id="highSchool" name="aboutEducation">
+                <label for="highSchool"> Απόφοιτος λυκείου </label> </span>
+                <span>
+                <input type="radio" id="bachelorDegree" name="aboutEducation"> 
+                <label for="bachelorDegree"> Κάτοχος προπτυχιακού </label> </span>
+                <span>
+                <input type="radio" id="masterDegree" name="aboutEducation">
+                <label for="masterDegree"> Κάτοχος μεταπτυχιακού </label> </span>
+                <span>
+                <input type="radio" id="doctorate" name="aboutEducation">
+                <label for="doctorate"> Κάτοχος διδακτορικού </label> </span>
+            </p>
+            <p>
+                <span> Αγαπημένο χρώμα: </span>
+                <input type="color" id="prefColor" name="prefColor"> <!-- TODO που μπορεί να χρησιμοποιηθεί μέσα στο site? -->
+            </p>
+            <p>
+                <span> Επάγγελμα που επιθυμείτε να ασκήσετε: </span>
+                <input type="text" id="wishJob" name="wishJob" placeholder="Εκπαιδευτής Pokemon" autocomplete="wishJobAC" list="wishJobList"> <!-- check στο τέλος τις τιμές της λίστας -->
+            </p>
+            <p>
+                <span> <label for="suggestions"> Προτεινόμενη βελτίωση επί της σελίδας </label> </span>
+                
+                <select id="suggestions" name="suggestions"> 
+                    <optgroup label="Στυλ">
+                        <option value="funny"> Πιο αστείο?! </option>
+                        <option value="serious"> Πιο σοβαρό?! </option>
+                        <option value="ion"> Πιο σοκολάτα γάλακτος? Δεν γίνεται! </option>
+                    </optgroup>
+                    <optgroup label="Περιεχόμενο"> 
+                        <option value="more"> Πιο πολύ περιεχόμενο </option>
+                        <option value="less"> Πιο συνοπτικό περιεχόμενο </option>
+                        <option value="okay"> Με καλύπτει όπως είναι </option>
+                    </optgroup>
+                </select>
+            </p>
+            
+        </fieldset>
+        <fieldset>
+            <legend> Ξεχάσαμε ή παραλείψαμε κάτι? Θέλετε να μας βοηθήσετε να βελτιωθούμε? Συμπληρώστε το σχόλιο σας στη φόρμα παρακάτω, η γνώμη σας είναι σημαντική για εμάς ! </legend>
+            <p>
+                <label for="message"> <span> Φόρμα σχολίων </span></label>
+                <textarea id="message" name="message" rows="7" cols="55" maxlength="10"> </textarea>
+            </p>
+        </fieldset>
+
+        <div id="buttons">
+            <input type="submit" id="btn_submit" value="Υποβολή φόρμας"> 
+            <input type="reset" id="btn_reset" value="Εκκαθάριση στοιχείων και επανασυμπλήρωση">
+        </div>
+    </form>
+    
+    <datalist id="userFunnyNameList">
+        <option value="green Bulbasaur"></option>
+        <option value="orange Charmander"></option>
+        <option value="yello Pikachu"></option>
+        <option value="blue Squirtle"></option>
+        <option value="white Mewtwo"></option>
+    </datalist>
+    <datalist id="wishJobList">
+        <option value="Εισοδηματίας"></option>
+        <option value="Συνταξιούχος"></option>
+        <option value="Hustler"></option>
+        <option value="Pimp"></option>
+        <option value="Αρχαιολόγος αλλά σαν τον Indiana Jones"></option>
+    </datalist>
+
+</main>
+    
+
+
+</body>
+
+</html>
